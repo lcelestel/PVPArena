@@ -1,6 +1,7 @@
 package pvparena.models;
 
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Server;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Scoreboard;
@@ -26,7 +27,15 @@ public class PVPGame {
 
     public void addPlayer(Player player, String teamName) {
         teams.get(teamName).addEntry(player.getName());
-        player.setScoreboard(PVPscoreboard);
+    }
+
+    public void startGame() {
+        for (Team team : teams.values()) {
+            for(String playerName : team.getEntries()){
+                Player player = Bukkit.getPlayer(playerName);
+                player.setGameMode(GameMode.SURVIVAL);
+            }
+        }
     }
 
 

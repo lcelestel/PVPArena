@@ -10,3 +10,6 @@ commands:
   createTeam:
     description: crée une equipe
     usage: /createTeam
+  startGame:
+    description: commencer une partie
+    usage: /startGame
