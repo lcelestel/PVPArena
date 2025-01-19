@@ -29,11 +29,35 @@ public class PVPGame {
         teams.get(teamName).addEntry(player.getName());
     }
 
+
+
     public void startGame() {
         for (Team team : teams.values()) {
             for(String playerName : team.getEntries()){
                 Player player = Bukkit.getPlayer(playerName);
                 player.setGameMode(GameMode.SURVIVAL);
+            }
+        }
+    }
+
+    public void deadPlayer (Player player){
+        int numberOfTeamAlive = 0;
+        Team winnerTeam = null;
+        for(Team team : teams.values()){
+            for (String playerName : team.getEntries()){
+                if(player.getName().equals(playerName)){
+                    team.removeEntry(playerName);
+                    break;
+                }
+            }
+            if(!team.getEntries().isEmpty()){
+                numberOfTeamAlive++;
+                winnerTeam = team;
+            }
+        }
+        if(numberOfTeamAlive == 1){
+            for(Player p : Bukkit.getOnlinePlayers()){
+                p.sendMessage("Victoire de l'equipe" + winnerTeam.getName());
             }
         }
     }
