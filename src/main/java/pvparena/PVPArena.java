@@ -4,6 +4,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import pvparena.commandes.CreateTeamCommande;
 import pvparena.commandes.JoinTeamCommande;
+import pvparena.commandes.StartGameCommande;
 import pvparena.listener.PlayerJoin;
 import pvparena.models.PVPGame;
 
@@ -20,6 +21,7 @@ public final class PVPArena extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
         this.getCommand("joinTeam").setExecutor(new JoinTeamCommande());
         this.getCommand("createTeam").setExecutor(new CreateTeamCommande());
+        this.getCommand("startGame").setExecutor(new StartGameCommande());
     }
 
     @Override
