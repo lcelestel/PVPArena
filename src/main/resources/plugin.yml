@@ -1,0 +1,4 @@
+name: PVPArena
+version: '1.0-SNAPSHOT'
+main: pvparena.PVPArena
+api-version: '1.21'
