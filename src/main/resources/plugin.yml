@@ -2,3 +2,11 @@ name: PVPArena
 version: '1.0-SNAPSHOT'
 main: pvparena.PVPArena
 api-version: '1.21'
+
+commands:
+  joinTeam:
+    description: rejoindre une team
+    usage: /joinTeam
+  createTeam:
+    description: crée une equipe
+    usage: /createTeam
