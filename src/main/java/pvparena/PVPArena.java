@@ -1,8 +1,10 @@
 package pvparena;
 
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import pvparena.commandes.CreateTeamCommande;
 import pvparena.commandes.JoinTeamCommande;
+import pvparena.listener.PlayerJoin;
 import pvparena.models.PVPGame;
 
 public final class PVPArena extends JavaPlugin {
@@ -15,6 +17,7 @@ public final class PVPArena extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
         this.getCommand("joinTeam").setExecutor(new JoinTeamCommande());
         this.getCommand("createTeam").setExecutor(new CreateTeamCommande());
     }

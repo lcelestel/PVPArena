@@ -14,6 +14,10 @@ public class PVPGame {
 
     Map<String, Team> teams = new HashMap<>();
 
+    public Scoreboard getPVPscoreboard() {
+        return PVPscoreboard;
+    }
+
     public void addTeam(String teamName) {
         Team team = PVPscoreboard.registerNewTeam(teamName);
         teams.put(teamName, team);
